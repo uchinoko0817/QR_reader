@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QR Reader</string>
+    <string name="about_app">About App</string>
+    <string name="history">History</string>
+</resources>
