@@ -21,6 +21,7 @@ class HistoryActivity : AppCompatActivity(){
         // Enable back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // Make list view
         try{
             val histories = historyService.readAll()
             val listView = findViewById<ListView>(R.id.list_view)

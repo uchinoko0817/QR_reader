@@ -39,6 +39,7 @@ class HistoryService (context: Context){
                 cursor.moveToNext()
             }
         }
+        cursor.close()
         return list
     }
 
@@ -48,7 +49,7 @@ class HistoryService (context: Context){
     }
 
     // Convert ZDT to String
-    private fun getDateTimeText(dateTime: ZonedDateTime):String{
+    private fun getDateTimeText(dateTime: ZonedDateTime):String {
         return dateTime.format(DateTimeFormatter.ISO_ZONED_DATE_TIME)
     }
 }

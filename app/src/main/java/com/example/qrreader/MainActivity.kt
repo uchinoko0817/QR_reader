@@ -32,12 +32,14 @@ class MainActivity : AppCompatActivity() {
     // Flag prevent scan repetition
     private var isBusy = false
 
+    // Use original menu layout
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.home_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // Switch screen by selected option
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.history -> {
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         barcodeView.decodeContinuous(barcodeCallback)
     }
 
+    // Show dialog to notify permission matter
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray){
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
@@ -86,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Callback when barcode scanned
     private val barcodeCallback = object : BarcodeCallback {
         override fun barcodeResult(result: BarcodeResult?) {
             // Validation
@@ -106,6 +110,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Show dialog to chose action after scan
     private fun showResultDialog(data :String) {
         var isSuccess = true
         AlertDialog.Builder(this)
@@ -147,6 +152,7 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
+    // Utility to find barcode view
     private fun findBarcodeView() : DecoratedBarcodeView {
         return findViewById(R.id.barcodeView)
     }
